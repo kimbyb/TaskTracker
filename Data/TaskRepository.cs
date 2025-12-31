@@ -16,7 +16,7 @@ public class TaskRepository
         });
     }
 
-    public void ToggleOne(int id)
+    public void ToggleDone(int id)
     {
         var task = _tasks.First(t => t.Id == id);
         task.IsDone = !task.IsDone;

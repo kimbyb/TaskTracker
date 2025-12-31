@@ -1,10 +1,49 @@
 @model IReadOnlyList<TaskTracker.Models.TaskItem>
 
-<h1>My Tasks</h1>
+@{
+    ViewData["Title"] = "Tasks";
+}
 
-<ul>
-    @foreach (var t in Model)
-    {
-        <li>@t.Title</li>
-    }
-</ul>
+<h1>Task Tracker</h1>
+
+<form method="post" asp-action="Add" class="mb-3" style="margin-bottom:16px;">
+    <input name="title" placeholder="New task..." style="padding:8px; width:280px;" />
+    <button type="submit" style="padding:8px 12px;">Add</button>
+</form>
+
+@if (!Model.Any())
+{
+    <p>No tasks yet. Add your first one 👆</p>
+}
+else
+{
+    <ul style="list-style:none; padding-left:0;">
+        @foreach (var t in Model)
+        {
+            <li style="margin-bottom:10px; display:flex; align-items:center; gap:10px;">
+                <!-- Toggle -->
+                <form method="post" asp-action="ToggleDone" style="display:inline;">
+                    <input type="hidden" name="id" value="@t.Id" />
+                    <button type="submit" title="Toggle done" style="padding:6px 10px;">
+                        @(t.IsDone ? "✅" : "⬜")
+                    </button>
+                </form>
+
+                <!-- Title -->
+                <span style="@(t.IsDone ? "text-decoration:line-through; opacity:0.7;" : "")">
+                    @t.Title
+                </span>
+
+                <span style="opacity:0.6; font-size:12px;">
+                    (@t.CreatedAt.ToLocalTime().ToString("yyyy-MM-dd HH:mm"))
+                </span>
+
+                <!-- Delete -->
+                <form method="post" asp-action="Delete" style="display:inline; margin-left:auto;">
+                    <input type="hidden" name="id" value="@t.Id" />
+                    <button type="submit" title="Delete" style="padding:6px 10px;">🗑️</button>
+                </form>
+            </li>
+        }
+    </ul>
+}
