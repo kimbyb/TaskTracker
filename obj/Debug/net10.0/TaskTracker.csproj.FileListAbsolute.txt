@@ -95,3 +95,4 @@ C:\Users\smarc\RiderProjects\TaskTracker\TaskTracker\obj\Debug\net10.0\refint\Ta
 C:\Users\smarc\RiderProjects\TaskTracker\TaskTracker\obj\Debug\net10.0\TaskTracker.pdb
 C:\Users\smarc\RiderProjects\TaskTracker\TaskTracker\obj\Debug\net10.0\TaskTracker.genruntimeconfig.cache
 C:\Users\smarc\RiderProjects\TaskTracker\TaskTracker\obj\Debug\net10.0\ref\TaskTracker.dll
+C:\Users\smarc\RiderProjects\TaskTracker\TaskTracker\obj\Debug\net10.0\TaskTracker.sourcelink.json

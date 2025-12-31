@@ -1,0 +1,10 @@
+@model IReadOnlyList<TaskTracker.Models.TaskItem>
+
+<h1>My Tasks</h1>
+
+<ul>
+    @foreach (var t in Model)
+    {
+        <li>@t.Title</li>
+    }
+</ul>
